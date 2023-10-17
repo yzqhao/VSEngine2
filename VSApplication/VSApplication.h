@@ -139,7 +139,6 @@ namespace VSEngine2
 		virtual bool CreateMonitor();
 		virtual bool ReleaseMonitor();
 
-		virtual bool CreateDx9();
 		virtual bool CreateDx10();
 		virtual bool CreateDx11();
 		virtual bool CreateOPGL();

@@ -62,7 +62,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="..\Bin\VSDataStruct_d.lib ..\Bin\VSSystem_d.lib ..\Bin\VSMath_d.lib ..\Bin\VSGraphic_d.lib ..\SDK\DX9\Lib\x86\d3d9.lib ..\SDK\DX9\Lib\x86\d3dx9.lib"
-				OutputFile="..\Bin\VSDx9Renderer_d.dll"
+				OutputFile="..\Bin\VSDx11Renderer_d.dll"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="2"

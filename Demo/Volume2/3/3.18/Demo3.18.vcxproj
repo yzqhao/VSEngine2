@@ -63,7 +63,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>..\..\..\..\Bin\VSSystem_d.lib;..\..\..\..\Bin\VSDataStruct_d.lib;..\..\..\..\Bin\VSMath_d.lib;..\..\..\..\Bin\VSGraphic_d.lib;..\..\..\..\Bin\VSApplication_d.lib;..\..\..\..\Bin\VSInput_d.lib;..\..\..\..\Bin\VSDx9Input_d.lib;..\..\..\..\Bin\VSDx9Renderer_d.lib;..\..\..\..\Bin\VSDx11Renderer_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\Bin\VSSystem_d.lib;..\..\..\..\Bin\VSDataStruct_d.lib;..\..\..\..\Bin\VSMath_d.lib;..\..\..\..\Bin\VSGraphic_d.lib;..\..\..\..\Bin\VSApplication_d.lib;..\..\..\..\Bin\VSInput_d.lib;..\..\..\..\Bin\VSDx9Input_d.lib;..\..\..\..\Bin\VSDx11Renderer_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

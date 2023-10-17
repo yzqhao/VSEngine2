@@ -1,5 +1,4 @@
 #include "VSApplication.h"
-#include "VSDx9Renderer.h"
 #include "VSEngineDXInput.h"
 #include "VSTimer.h"
 #include "VSSceneManager.h"
@@ -742,40 +741,7 @@ VSWindowApplication::~VSWindowApplication()
 {
 
 }
-bool VSWindowApplication::CreateDx9()
-{
-	if (VSRenderer::ms_pRenderer)
-	{
-		if (VSRenderer::ms_pRenderer->GetRendererType() == VSRenderer::RAT_DIRECTX9)
-		{
-			return true;
-		}
-		else
-		{
-			VSMAC_DELETE(VSRenderer::ms_pRenderer);
-			VSDX9Renderer * pRenderer =
-				VS_NEW VSDX9Renderer(m_MainHwnd, m_uiScreenWidth, m_uiScreenHeight,
-				m_bIsWindowed, m_uiAnisotropy, m_uiMultisample, m_ArrayChildHwnd.GetBuffer(), m_ArrayChildHwnd.GetNum());
-			if (VSRenderer::ms_pRenderer)
-			{
-				return true;
-			}
-		}
-	}
-	else
-	{
-		VSDX9Renderer * pRenderer =
-			VS_NEW VSDX9Renderer(m_MainHwnd, m_uiScreenWidth, m_uiScreenHeight,
-			m_bIsWindowed, m_uiAnisotropy, m_uiMultisample, m_ArrayChildHwnd.GetBuffer(), m_ArrayChildHwnd.GetNum());
-		if (VSRenderer::ms_pRenderer)
-		{
-			return true;
-		}
-	}
 
-	return true;
-
-}
 bool VSWindowApplication::CreateDx10()
 {
 	return false;
@@ -820,11 +786,7 @@ bool VSWindowApplication::CreateOPGL()
 bool VSWindowApplication::CreateRenderer()
 {
 	VSApplication::CreateRenderer();
-	if (m_uiRenderAPIType == VSRenderer::RAT_DIRECTX9)
-	{
-		return CreateDx9();
-	}
-	else if (m_uiRenderAPIType == VSRenderer::RAT_OPENGL)
+	if (m_uiRenderAPIType == VSRenderer::RAT_OPENGL)
 	{
 		return CreateOPGL();
 	}
