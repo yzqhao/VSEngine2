@@ -22,7 +22,6 @@ VSScene::VSScene()
 {
 
 	m_pAllLight.Clear();
-	m_pAllCamera.Clear();
 	m_pStaticRoot = NULL;
 	VSSceneManager::ms_pSceneManager->AddScene(this);
 	m_bIsBuild = false;
@@ -32,7 +31,6 @@ VSScene::~VSScene()
 
 	VSSceneManager::ms_pSceneManager->DeleteScene(this);
 	m_pAllLight.Clear();
-	m_pAllCamera.Clear();
 
 	m_pDynamic.Clear();
 	m_pStaticRoot = NULL;
@@ -88,8 +86,6 @@ void VSScene::Update(double dAppTime)
 }
 void VSScene::CollectUpdateInfo()
 {
-	if(m_pAllCamera.GetNum() > 0)
-		m_pAllCamera.Clear();
 	if(m_pAllLight.GetNum() > 0)
 		m_pAllLight.Clear();
 	if (m_bIsBuild == false)
@@ -103,41 +99,14 @@ void VSScene::CollectUpdateInfo()
 					m_pAllLight.AddElement(m_ObjectNodes[i]->m_pAllLight, 0, m_ObjectNodes[i]->m_pAllLight.GetNum() - 1);
 			}
 		}
-		for (unsigned int i = 0; i < m_ObjectNodes.GetNum(); i++)
-		{
-			if (m_ObjectNodes[i])
-			{
-				if (m_ObjectNodes[i]->m_pAllCamera.GetNum() > 0)
-					m_pAllCamera.AddElement(m_ObjectNodes[i]->m_pAllCamera, 0, m_ObjectNodes[i]->m_pAllCamera.GetNum() - 1);
-			}
-		}
 	}
 	else
 	{
 		if (m_pStaticRoot)
 		{
-			if (m_pStaticRoot->m_pAllCamera.GetNum() > 0)
-				m_pAllCamera.AddElement(m_pStaticRoot->m_pAllCamera, 0, m_pStaticRoot->m_pAllCamera.GetNum() - 1);
-		}
-
-
-		for (unsigned int i = 0; i < m_pDynamic.GetNum(); i++)
-		{
-			if (m_pDynamic[i])
-			{
-				if (m_pDynamic[i]->m_pAllCamera.GetNum() > 0)
-					m_pAllCamera.AddElement(m_pDynamic[i]->m_pAllCamera, 0, m_pDynamic[i]->m_pAllCamera.GetNum() - 1);
-			}
-
-		}
-
-		if (m_pStaticRoot)
-		{
 			if (m_pStaticRoot->m_pAllLight.GetNum() > 0)
 				m_pAllLight.AddElement(m_pStaticRoot->m_pAllLight, 0, m_pStaticRoot->m_pAllLight.GetNum() - 1);
 		}
-
-
 
 		for (unsigned int i = 0; i < m_pDynamic.GetNum(); i++)
 		{
@@ -146,8 +115,6 @@ void VSScene::CollectUpdateInfo()
 				if (m_pDynamic[i]->m_pAllLight.GetNum() > 0)
 					m_pAllLight.AddElement(m_pDynamic[i]->m_pAllLight, 0, m_pDynamic[i]->m_pAllLight.GetNum() - 1);
 			}
-
-
 		}
 	}
 }

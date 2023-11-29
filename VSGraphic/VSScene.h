@@ -60,7 +60,6 @@ namespace VSEngine2
 		}
 	protected:
 		VSArray<VSLight *> m_pAllLight;
-		VSArray<VSCamera *> m_pAllCamera;
 
 		VSArray<VSNode *> m_pDynamic;
 		VSQuadNodePtr m_pStaticRoot;
